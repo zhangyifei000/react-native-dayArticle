@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {StyleSheet ,View ,WebView} from 'react-native';
 import NetWork from './util/network-util.js';
 
@@ -31,9 +31,10 @@ export default class Dashboard extends Component {
 
   render() {
     const {content, title} = this.state;
+    const {style, content, title} = this.props;
 
     return (
-      <View style={styles.container}>
+      <View style={style}>
         <WebView
           style={styles.webView}
           automaticallyAdjustContentInsets={true}
@@ -61,9 +62,6 @@ export default class Dashboard extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   webView: {
     marginTop: 24
   }
