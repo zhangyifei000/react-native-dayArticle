@@ -33,7 +33,6 @@ export default class App extends React.Component {
 
   render() {
     const {today, prevDay} = this.state;
-    // const contentOffset = {x: Util.scrrenWidth, y: 0};
 
     return (
       <ScrollView
@@ -41,7 +40,6 @@ export default class App extends React.Component {
         pagingEnabled={true} 
         contentContainerStyle={styles.container}
         automaticallyAdjustContentInsets={true}
-        // contentOffset={contentOffset}
       >
         <DashBoard style={styles.dashBoard} date={prevDay}/>
         <DashBoard style={styles.dashBoard} date={today}/>
