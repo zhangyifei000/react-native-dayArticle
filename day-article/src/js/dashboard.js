@@ -14,7 +14,17 @@ export default class Dashboard extends Component {
   }
   
   componentDidMount () {
-    NetWork.getTodayProfile((res) => {
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {date} = nextProps;
+    
+    if (date.length === 0) {
+      return;
+    }
+
+    NetWork.getDayProfile(date, (res) => {
       const {data: {
         title,
         content
@@ -31,7 +41,7 @@ export default class Dashboard extends Component {
 
   render() {
     const {content, title} = this.state;
-    const {style, content, title} = this.props;
+    const {style} = this.props;
 
     return (
       <View style={style}>

@@ -12,8 +12,8 @@ class NetWork {
            })
   }
 
-  static getDayProfile(options={} ,success, faile) {
-    return fetch(DAY_FILE_URL, {method:'GET', body: JSON.stringify(options)}).then(reseponse => reseponse.json())
+  static getDayProfile(date ,success, faile) {
+    return fetch(DAY_FILE_URL + `&date=${date}`).then(reseponse => reseponse.json())
       .then(responseJson => {
         success(responseJson);
       }).catch((error) => {
